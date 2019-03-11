@@ -12,7 +12,7 @@ FROM gradle:4.2.1-jdk8
 RUN echo "Testing gradle installation" && gradle --version
 
 # merge data from previous image
-COPY --from=NODE_SOURCE /opt/yarn /opt/yarn/
+COPY --from=NODE_SOURCE /opt/yarn-v1.12.3 /opt/yarn-v1.12.3/
 COPY --from=NODE_SOURCE /usr/local/lib/node_modules /usr/local/lib/node_modules/
 COPY --from=NODE_SOURCE /usr/local/bin /usr/local/bin
 
