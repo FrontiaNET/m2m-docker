@@ -1,6 +1,8 @@
 # installing node:6 (nodejs, npm, yarn)
 FROM node:6 as NODE_SOURCE
 
+# test
+
 # installing angular-cli globally
 RUN echo "Installing angular-cli for global use"
 RUN npm install -g @angular/cli@1.4.3
