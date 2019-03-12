@@ -73,11 +73,16 @@ CMD [ "node" ]
 # ----------------------------------------------------
 # custom M2M setup after original NODE setuo
 # ----------------------------------------------------
-ENV NODE_CLI_VERSION 1.4.3
+ENV ANGULAR_CLI_VERSION 1.6.3
+ENV ANGULAR_DEVKIT_CORE_VERSION 0.0.29
+
+# installing angular-devkit/core globally
+RUN echo "Installing angular-devkit/core $ANGULAR_DEVKIT_CORE_VERSION for global use - dependency for angular-cli"
+RUN npm install -g @angular-devkit/core@$ANGULAR_DEVKIT_CORE_VERSION
 
 # installing angular-cli globally
-RUN echo "Installing angular-cli for global use"
-RUN npm install -g @angular/cli@$NODE_CLI_VERSION
+RUN echo "Installing angular-cli $ANGULAR_CLI_VERSION for global use"
+RUN npm install -g @angular/cli@$ANGULAR_CLI_VERSION
 
 # check if node is working properly after merge
 RUN echo "Testing node installation" && node -v && npm -v
