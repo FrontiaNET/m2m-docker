@@ -5,6 +5,19 @@ m2m-docker project
 fork from [docker-gradle-angular2](https://github.com/pesoklp13/docker-gradle-angular2)
 
 ---
+## version 1.4.0
+Docker image for gradle &amp; angular 2
+
+Angular CLI upgrade to 1.6.3
+
+### Versions in 1.4.0
+- Node 6.17.0
+- Yarn 1.12.3
+- Angular-cli 1.6.3
+- Angular-devkit/core 0.0.29 - dependency for Angular-cli
+- Gradle 4.2.1
+
+---
 ## version 1.3.0
 Docker image for gradle &amp; angular 2
 
