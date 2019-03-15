@@ -9,7 +9,7 @@ FROM openjdk:8-jdk
 RUN groupadd --gid 1000 node \
   && useradd --uid 1000 --gid node --shell /bin/bash --create-home node
 
-ENV NODE_VERSION 6.17.0
+ENV NODE_VERSION 10.15.3
 
 RUN ARCH= && dpkgArch="$(dpkg --print-architecture)" \
   && case "${dpkgArch##*-}" in \
@@ -48,7 +48,7 @@ RUN ARCH= && dpkgArch="$(dpkg --print-architecture)" \
   && rm "node-v$NODE_VERSION-linux-$ARCH.tar.xz" SHASUMS256.txt.asc SHASUMS256.txt \
   && ln -s /usr/local/bin/node /usr/local/bin/nodejs
 
-ENV YARN_VERSION 1.12.3
+ENV YARN_VERSION 1.13.0
 
 RUN set -ex \
   && for key in \
@@ -73,7 +73,7 @@ CMD [ "node" ]
 # ----------------------------------------------------
 # custom M2M setup after original NODE setuo
 # ----------------------------------------------------
-ENV ANGULAR_CLI_VERSION 1.6.3
+ENV ANGULAR_CLI_VERSION 1.7.4
 ENV ANGULAR_DEVKIT_CORE_VERSION 0.0.29
 
 # installing angular-devkit/core globally
@@ -82,7 +82,8 @@ RUN npm install -g @angular-devkit/core@$ANGULAR_DEVKIT_CORE_VERSION
 
 # installing angular-cli globally
 RUN echo "Installing angular-cli $ANGULAR_CLI_VERSION for global use"
-RUN npm install -g @angular/cli@$ANGULAR_CLI_VERSION
+# use --unsafe-perm - error Unable to save binary /usr/local/lib/node_modules/@angular/cli/node_modules/node-sass/vendor/linux-x64-64 : { Error: EACCES: permission denied, mkdir '/usr/local/lib/node_modules/@angular/cli/node_modules/node-sass/vendor'
+RUN npm install -g --unsafe-perm=true @angular/cli@$ANGULAR_CLI_VERSION
 
 # check if node is working properly after merge
 RUN echo "Testing node installation" && node -v && npm -v
