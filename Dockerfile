@@ -4,7 +4,7 @@
 FROM openjdk:8-jdk
 
 # ----------------------------------------------------
-# original NODE setup from node:6 image
+# original NODE setup from node:10.15.3 image
 # ----------------------------------------------------
 RUN groupadd --gid 1000 node \
   && useradd --uid 1000 --gid node --shell /bin/bash --create-home node
@@ -73,12 +73,7 @@ CMD [ "node" ]
 # ----------------------------------------------------
 # custom M2M setup after original NODE setuo
 # ----------------------------------------------------
-ENV ANGULAR_CLI_VERSION 1.7.4
-ENV ANGULAR_DEVKIT_CORE_VERSION 0.0.29
-
-# installing angular-devkit/core globally
-RUN echo "Installing angular-devkit/core $ANGULAR_DEVKIT_CORE_VERSION for global use - dependency for angular-cli"
-RUN npm install -g @angular-devkit/core@$ANGULAR_DEVKIT_CORE_VERSION
+ENV ANGULAR_CLI_VERSION 7.3.8
 
 # installing angular-cli globally
 RUN echo "Installing angular-cli $ANGULAR_CLI_VERSION for global use"

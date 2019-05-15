@@ -5,6 +5,19 @@ m2m-docker project
 fork from [docker-gradle-angular2](https://github.com/pesoklp13/docker-gradle-angular2)
 
 ---
+## version 2.0.0
+Docker image for gradle 4.2.1 &amp; Angular 7.3.8
+
+Angular CLI upgrade to 7.3.8
+
+### Versions in 2.0.0
+- Based on [openjdk:8-jdk](https://hub.docker.com/_/openjdk) Docker image - [github source](https://github.com/docker-library/openjdk/blob/c3023e4da10d10e9c9775eabe2d7baac146e7ae1/8/jdk/Dockerfile)
+- [Node 10.15.3](https://github.com/nodejs/node/tree/v10.15.3) inspired by [node:10.15.3](https://github.com/nodejs/docker-node/blob/170ed2092d4925971f9cd3ad5dfc416e820f90fd/10/stretch/Dockerfile)
+- Yarn 1.13.0 inspired by [node:10.15.3](https://github.com/nodejs/docker-node/blob/170ed2092d4925971f9cd3ad5dfc416e820f90fd/10/stretch/Dockerfile)
+- Angular-cli 7.3.8
+- Gradle 4.2.1
+
+---
 ## version 1.5.0
 Docker image for gradle &amp; Angular 5
 
